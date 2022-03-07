@@ -1,11 +1,12 @@
 const populateHome = async () => {
   const container = document.getElementById('container');
+  container.innerHTML = '';
   const requestURL = 'https://pokeapi.co/api/v2/pokemon?limit=48';
   await fetch(requestURL)
     .then((response) => response.json())
     .then((json) => json.results.map(async (poke) => {
       const card = document.createElement('div');
-      card.classList = 'card my-5';
+      card.classList = 'card m-5';
       const cardImg = document.createElement('img');
       cardImg.classList = 'card-img-top';
       cardImg.width = '2px';
