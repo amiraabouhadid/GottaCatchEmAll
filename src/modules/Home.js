@@ -28,7 +28,7 @@ const populateHome = async () => {
       commentsLink.innerHTML = 'Comments';
 
       const likeButton = document.createElement('p');
-      likeButton.innerHTML = "<i class='fa fa-heart' aria-hidden='true'></i>";
+      likeButton.innerHTML = "<i class='far fa-heart'></i>";
       likeButton.classList = 'col-2';
 
       const likesCount = document.createElement('div');
