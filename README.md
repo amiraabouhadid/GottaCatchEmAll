@@ -2,13 +2,14 @@
 
 # JS Capstone Project : Gotta Catch'em All!
 
->This is a web app where users can view all pokemons fetched from the Pokeapi and leave comments !
+>This is a web app where users can view all pokémons fetched from the Pokeapi and leave comments !
 
 ## Built With
 
 - HTML5
 - CSS3
 - JavaScript ES6
+- Webpack
 
 ## Live demo
 
@@ -50,6 +51,12 @@ $ git clone git@github.com:amiraabouhadid/GottaCatchEmAll.git.
 - GitHub: [@amiraabouhadid](https://github.com/amiraabouhadid)
 - Twitter: [@AbouhadidAmira](https://twitter.com/AbouhadidAmira)
 - LinkedIn: [amira-abouhadid](https://www.linkedin.com/in/amira-abouhadid/)
+
+👤 **Mirouhml**
+
+- GitHub: [@mirouhml](https://github.com/mirouhml)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ammar-hamlaoui-514909189/)
+- Twitter: [@kuronomirou](https://twitter.com/kuronomirou)
 
 ## Contributors
 
