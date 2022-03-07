@@ -4,7 +4,7 @@ const populatAbilities = async () => {
   const requestURL = 'https://pokeapi.co/api/v2/ability';
   await fetch(requestURL)
     .then((response) => response.json())
-    .then((json) => json.results.map((ability) => {
+    .then((json) => json.results.forEach((ability) => {
       const abilityCard = document.createElement('div');
       abilityCard.classList = 'card m-5 p-5';
 

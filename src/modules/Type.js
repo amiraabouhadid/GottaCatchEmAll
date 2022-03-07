@@ -4,7 +4,7 @@ const populateType = async () => {
   const requestURL = 'https://pokeapi.co/api/v2/type';
   await fetch(requestURL)
     .then((response) => response.json())
-    .then((json) => json.results.map((type) => {
+    .then((json) => json.results.forEach((type) => {
       const typeCard = document.createElement('div');
       typeCard.classList = 'card m-5 p-5';
 
