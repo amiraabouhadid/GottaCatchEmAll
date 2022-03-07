@@ -1,6 +1,6 @@
 export const populateHome = async () => {
   const container = document.getElementById("container");
-  const requestURL = "https://pokeapi.co/api/v2/pokemon?limit=50";
+  const requestURL = "https://pokeapi.co/api/v2/pokemon?limit=48";
   await fetch(requestURL)
     .then((response) => response.json())
     .then((json) =>
