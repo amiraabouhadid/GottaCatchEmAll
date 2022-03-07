@@ -1,11 +1,5 @@
-import _ from "lodash";
-import "./style.css";
-function component() {
-  const element = document.createElement("div");
+import './style.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Nav from './modules/Nav';
 
-  element.innerHTML = _.join(["Hello", "webpack"], " ");
-
-  return element;
-}
-
-document.body.appendChild(component());
+Nav();
