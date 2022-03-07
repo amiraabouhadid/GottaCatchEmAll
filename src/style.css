@@ -8,3 +8,6 @@ footer{
   position: relative;
   float: right;
 }
+.types {
+  text-align: left;
+}
