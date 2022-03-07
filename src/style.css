@@ -4,3 +4,7 @@ body {
 footer{
   height: 4rem;
 }
+.likes-count{
+  position: relative;
+  float: right;
+}
