@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --env=jsdom",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
     "build": "webpack"
@@ -22,6 +22,8 @@
   },
   "dependencies": {
     "eslint": "^8.9.0",
+    "jest": "^27.5.1",
+    "jsdom": "^19.0.0",
     "lodash": "^4.17.21"
   }
 }
