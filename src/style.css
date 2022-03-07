@@ -1,13 +1,16 @@
 body {
   background-color: blue;
 }
-footer{
+
+footer {
   height: 4rem;
 }
-.likes-count{
+
+.likes-count {
   position: relative;
   float: right;
 }
+
 .types {
   text-align: left;
 }

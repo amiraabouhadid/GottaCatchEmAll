@@ -1,18 +1,18 @@
-export const comments =  (pokemon,commentLink,i) => {
-  const container = document.getElementById("container");
+const comments = (pokemon, commentLink, i) => {
+  const container = document.getElementById('container');
   const commentPopup = document.createElement('div');
   commentPopup.className = 'modal fade';
-  commentPopup.setAttribute('id',`modal${i}`)
-  commentLink.setAttribute('data-bs-toggle','modal');
-  commentLink.setAttribute('data-bs-target',`#modal${i}`);
+  commentPopup.setAttribute('id', `modal${i}`);
+  commentLink.setAttribute('data-bs-toggle', 'modal');
+  commentLink.setAttribute('data-bs-target', `#modal${i}`);
   const types = [];
-  pokemon.types.map(type =>{
+  pokemon.types.forEach((type) => {
     types.push(type.type.name);
-  })
+  });
   const abilities = [];
-  pokemon.abilities.map(ability =>{
+  pokemon.abilities.forEach((ability) => {
     abilities.push(ability.ability.name);
-  })
+  });
   commentPopup.innerHTML = `<div class="modal-dialog modal-xl">
                               <div class="modal-content">
                                 <div class="modal-header">
@@ -32,10 +32,10 @@ export const comments =  (pokemon,commentLink,i) => {
                                         <p>Height: ${pokemon.height}m</p>
                                       </div>
                                       <div class="col-6 types">
-                                        <p>Types: ${types.join(", ")}</p>
+                                        <p>Types: ${types.join(', ')}</p>
                                       </div>
                                       <div class="col-6 types">
-                                        <p>Abilities: ${abilities.join(", ")}</p>
+                                        <p>Abilities: ${abilities.join(', ')}</p>
                                       </div>
                                     </div>
                                   </div>
@@ -62,4 +62,6 @@ export const comments =  (pokemon,commentLink,i) => {
                               </div>
                             </div>`;
   container.appendChild(commentPopup);
-}
+};
+
+export default (comments);
