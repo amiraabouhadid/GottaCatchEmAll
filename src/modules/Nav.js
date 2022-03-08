@@ -1,10 +1,8 @@
 import populatePage from '../utils/populatePage';
 
-const Nav = () => {
-  const baseURL = 'https://pokeapi.co/api/v2/';
-  const homeURL = `${baseURL}pokemon?offset=20&limit=20`;
-  const typeURL = `${baseURL}type`;
-  const abilityURL = `${baseURL}ability`;
+const Nav = (baseURL, homeURL,typeURL, abilityURL) => {
+
+
   populatePage(homeURL);
   const homeLogo = document.getElementById('home-logo');
   homeLogo.onclick = (e) => {
