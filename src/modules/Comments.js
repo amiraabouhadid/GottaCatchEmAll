@@ -15,6 +15,7 @@ export const getComments = async (i) => {
     });
 };
 
+
 const comments = (pokemon, commentLink, i) => {
   const container = document.getElementById('container');
   const commentPopup = document.createElement('div');
