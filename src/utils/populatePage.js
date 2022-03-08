@@ -24,7 +24,7 @@ const populatePage = async (requestURL) => {
         item.likes = itemsLikes[0].likes;
       }
 
-      createCard(item, container);
+      createCard(item, container, i);
     }));
 };
 export default populatePage;

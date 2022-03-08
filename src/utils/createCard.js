@@ -1,17 +1,24 @@
 import createCardImg from './createCardImg';
 import addLike from './addLike';
 
-const createCard = async (item, container) => {
+const createCard = async (item, container, i) => {
   /// create card
   const card = document.createElement('div');
   card.id = item.id;
   card.classList = 'card m-4';
+  /// create comments
+  const commentsLink = document.createElement('a');
+  if (item.url.includes('pokemon')) {
+    commentsLink.classList = 'btn btn-primary my-1';
+    commentsLink.innerHTML = 'Comments';
+  }
+
   // create card img
   const cardImg = document.createElement('img');
   cardImg.classList = 'card-img-top p-4';
   cardImg.height = '150';
 
-  createCardImg(item, cardImg);
+  createCardImg(item, cardImg, commentsLink, i);
 
   /// create card text
   const cardText = document.createElement('div');
@@ -22,10 +29,7 @@ const createCard = async (item, container) => {
   header.classList = ' card-title row ';
   cardTitle.innerHTML = `${item.name.toUpperCase()}`;
   cardTitle.classList = 'col-10';
-  /// create comments
-  const commentsLink = document.createElement('a');
-  commentsLink.classList = 'btn btn-primary my-1';
-  commentsLink.innerHTML = 'Comments';
+
   /// create like Button
   const likeButton = document.createElement('a');
   likeButton.innerHTML = "<i class='far fa-heart'></i>";
