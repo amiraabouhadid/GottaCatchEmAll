@@ -1,18 +1,24 @@
+import comments from './Comments.js';
+
 const populateHome = async () => {
   const container = document.getElementById('container');
   container.innerHTML = '';
   const requestURL = 'https://pokeapi.co/api/v2/pokemon?limit=48';
   await fetch(requestURL)
     .then((response) => response.json())
-    .then((json) => json.results.map(async (poke) => {
+    .then((json) => json.results.map(async (poke, i) => {
       const card = document.createElement('div');
       card.classList = 'card m-5';
       const cardImg = document.createElement('img');
       cardImg.classList = 'card-img-top';
       cardImg.width = '2px';
+      const commentsLink = document.createElement('a');
+      commentsLink.classList = 'btn btn-primary my-3';
+      commentsLink.innerHTML = 'Comments';
       await fetch(`${poke.url}`)
         .then((response) => response.json())
         .then((json) => {
+          comments(json, commentsLink, i);
           cardImg.src = `${json.sprites.back_default}`;
           cardImg.alt = `${poke.name}`;
         });
@@ -23,12 +29,10 @@ const populateHome = async () => {
       header.classList = ' card-title row ';
       cardTitle.innerHTML = `${poke.name.toUpperCase()}`;
       cardTitle.classList = 'col-10';
-      const commentsLink = document.createElement('a');
-      commentsLink.classList = 'btn btn-primary my-3';
-      commentsLink.innerHTML = 'Comments';
 
       const likeButton = document.createElement('p');
       likeButton.innerHTML = "<i class='far fa-heart'></i>";
+
       likeButton.classList = 'col-2';
 
       const likesCount = document.createElement('div');
@@ -51,4 +55,5 @@ const populateHome = async () => {
       container.appendChild(card);
     }));
 };
-export default populateHome;
+
+export default (populateHome);
