@@ -15,27 +15,27 @@ const comments = (pokemon, commentLink, i) => {
   });
   commentPopup.innerHTML = `<div class="modal-dialog modal-xl">
                               <div class="modal-content">
-                                <div class="modal-header">
+                                <div class="modal-header border-0">
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body text-center p-5">
+                                <div class="modal-body text-center">
                                   <div class="">
-                                    <img src="${pokemon.sprites.front_shiny}" width="300rem" alt="${pokemon.forms[0].name}" />
-                                    <h3 class="modal-title my-4" id="exampleModalLabel">${pokemon.forms[0].name.toUpperCase()}</h3>   
+                                    <img src="${pokemon.sprites.other['official-artwork'].front_default}" width="200rem" alt="${pokemon.forms[0].name}" />
+                                    <h3 class="modal-title mb-2" id="exampleModalLabel">${pokemon.forms[0].name.toUpperCase()}</h3>   
                                   </div>
-                                  <div class="text-center mx-auto justify-content-md-center">
+                                  <div class="d-flex justify-content-center">
                                     <div class="row">
-                                      <div class="col-6 types">
-                                        <p>Weight: ${pokemon.weight}kg</p>
+                                      <div class="col-6 col-md-8 align-left characteristics">
+                                        <p><b>Weight:</b> ${pokemon.weight}kg</p>
                                       </div>
-                                      <div class="col-6 types">
-                                        <p>Height: ${pokemon.height}m</p>
+                                      <div class="col-6 col-md-4 align-left characteristics">
+                                        <p><b>Height:</b> ${pokemon.height}m</p>
                                       </div>
-                                      <div class="col-6 types">
-                                        <p>Types: ${types.join(', ')}</p>
+                                      <div class="col-6 col-md-8 align-left characteristics">
+                                        <p><b>Types:</b> ${types.join(', ')}</p>
                                       </div>
-                                      <div class="col-6 types">
-                                        <p>Abilities: ${abilities.join(', ')}</p>
+                                      <div class="col-6 col-md-4 align-left characteristics">
+                                        <p><b>Abilities:</b> ${abilities.join(', ')}</p>
                                       </div>
                                     </div>
                                   </div>
@@ -44,18 +44,18 @@ const comments = (pokemon, commentLink, i) => {
                                         Comments (2)
                                     </h4>
                                   </div>
-                                  <div class="my-4">
+                                  <div class="my-4 w-70">
                                     <h4>
                                       Add a comment
                                     </h4>
-                                    <form class="text-left">
+                                    <form class="comments-form">
                                       <div class="mb-3">
                                         <input type="text" id="name" placeholder="Your name">
                                       </div>
                                       <div class="mb-3">
                                         <textarea id="insight" placeholder="Your insight"></textarea>
                                       </div>
-                                      <button type="submit">Comment</button>
+                                      <button class="btn btn-primary" type="submit">Comment</button>
                                     </form>
                                   </div>
                                 </div>

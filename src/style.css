@@ -11,6 +11,45 @@ footer {
   float: right;
 }
 
-.types {
+.comments-form {
   text-align: left;
+  width: 50%;
+  margin: auto;
+}
+
+textarea {
+  width: 100%;
+}
+
+input {
+  width: 60%;
+}
+
+@media only screen and (max-width: 768px) {
+  .comments-form {
+    text-align: left;
+    width: 90%;
+    margin: auto;
+  }
+
+  textarea {
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+  }
+}
+
+.modal-dialog {
+  overflow-y: initial !important;
+  height: 90vh !important;
+}
+
+.characteristics {
+  font-size: 1.1rem;
+}
+
+.align-left {
+  text-align: left !important;
 }
