@@ -1,31 +1,31 @@
-import populateHome from './Home';
-import populateType from './Type';
-import populateAbilities from './Ability';
+import populatePage from "../utils/populatePage";
 
 const Nav = () => {
-  populateHome();
-  const homeLogo = document.getElementById('home-logo');
+  const baseURL = `https://pokeapi.co/api/v2/`;
+  const homeURL = baseURL + "pokemon?offset=20&limit=20";
+  const typeURL = baseURL + "type";
+  const abilityURL = baseURL + "ability";
+  populatePage(homeURL);
+  const homeLogo = document.getElementById("home-logo");
   homeLogo.onclick = (e) => {
     e.preventDefault();
-    populateHome();
+    populatePage(homeURL);
   };
-  const homeLink = document.getElementById('home');
+  const homeLink = document.getElementById("home");
   homeLink.onclick = (e) => {
     e.preventDefault();
-
-    populateHome();
+    populatePage(homeURL);
   };
-  const typeLink = document.getElementById('types');
+  const typeLink = document.getElementById("types");
   typeLink.onclick = (e) => {
     e.preventDefault();
-    populateType();
+    populatePage(typeURL);
   };
-  const abilityLink = document.getElementById('abilities');
+  const abilityLink = document.getElementById("abilities");
   abilityLink.onclick = (e) => {
     e.preventDefault();
-
-    populateAbilities();
+    populatePage(abilityURL);
   };
 };
 
-export default (Nav);
+export default Nav;
