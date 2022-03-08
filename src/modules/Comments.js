@@ -96,7 +96,7 @@ const comments = (pokemon, commentLink, i) => {
       const comment = {
         "item_id": "item"+i,
         "username": name.value,
-        "comment": insight.value
+        "comment": insight.value,
       }
       addComment(comment,status).then(
         () => {
