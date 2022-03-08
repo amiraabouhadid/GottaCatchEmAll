@@ -6,14 +6,14 @@ const populateHome = async () => {
     .then((response) => response.json())
     .then((json) => json.results.map(async (poke) => {
       const card = document.createElement('div');
-      card.classList = 'card m-5';
+      card.classList = 'card m-4';
       const cardImg = document.createElement('img');
-      cardImg.classList = 'card-img-top';
-      cardImg.width = '2px';
+      cardImg.classList = 'card-img-top p-4';
+      cardImg.height = '150';
       await fetch(`${poke.url}`)
         .then((response) => response.json())
         .then((json) => {
-          cardImg.src = `${json.sprites.back_default}`;
+          cardImg.src = `${json.sprites.other.dream_world.front_default}`;
           cardImg.alt = `${poke.name}`;
         });
       const cardText = document.createElement('div');
@@ -24,7 +24,7 @@ const populateHome = async () => {
       cardTitle.innerHTML = `${poke.name.toUpperCase()}`;
       cardTitle.classList = 'col-10';
       const commentsLink = document.createElement('a');
-      commentsLink.classList = 'btn btn-primary my-3';
+      commentsLink.classList = 'btn btn-primary my-1';
       commentsLink.innerHTML = 'Comments';
 
       const likeButton = document.createElement('p');
@@ -36,7 +36,7 @@ const populateHome = async () => {
       likesNum.innerHTML = '5 likes';
 
       likesNum.classList = 'likes-count';
-      likesCount.classList = 'py-2 my-3';
+      likesCount.classList = ' my-1';
       likesCount.appendChild(likesNum);
       header.appendChild(cardTitle);
       header.appendChild(likeButton);
