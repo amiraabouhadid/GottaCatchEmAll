@@ -1,9 +1,7 @@
-import populatePage from "./populatePage";
-
 const appId = 'FK4BafgXZ3oaEOpMgby6';
 const likesURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes`;
 
-const addLike = async (item, requestURL) => {
+const addLike = async (item) => {
   await fetch(likesURL, {
     method: 'POST',
     body: JSON.stringify({ item_id: `${item.id}` }),
@@ -12,6 +10,6 @@ const addLike = async (item, requestURL) => {
     },
   })
     .then((response) => response.text());
-  populatePage(requestURL);
+  window.location.reload();
 };
 export default (addLike);

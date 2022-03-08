@@ -1,7 +1,7 @@
 import createCardImg from './createCardImg';
 import addLike from './addLike';
 
-const createCard = async (item, container, i, requestURL) => {
+const createCard = async (item, container, i) => {
   /// create card
   const card = document.createElement('div');
   card.id = item.id;
@@ -36,7 +36,7 @@ const createCard = async (item, container, i, requestURL) => {
   likeButton.classList = 'col-2 text-dark';
   likeButton.onclick = (e) => {
     e.preventDefault();
-    addLike(item, requestURL);
+    addLike(item);
   };
   /// create likes Count
   const likesCount = document.createElement('div');

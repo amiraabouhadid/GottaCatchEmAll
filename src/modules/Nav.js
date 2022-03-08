@@ -1,8 +1,6 @@
 import populatePage from '../utils/populatePage';
 
-const Nav = (baseURL, homeURL,typeURL, abilityURL) => {
-
-
+const Nav = (baseURL, homeURL, typeURL, abilityURL) => {
   populatePage(homeURL);
   const homeLogo = document.getElementById('home-logo');
   homeLogo.onclick = (e) => {

@@ -20,30 +20,29 @@ const populatePage = async (requestURL) => {
     .then((response) => response.json())
     .then((json) => {
       itemsCount = json.results.length;
-      if(requestURL.includes('pokemon')){
+      if (requestURL.includes('pokemon')) {
         homeLink.innerHTML = `Pokemons (${itemsCount})`;
-        homeLink.style.textDecoration ='underline';
-        abilitiesLink.style.textDecoration ='none';
-        typesLink.style.textDecoration ='none';
-        typesLink.innerHTML = `Types`;
-        abilitiesLink.innerHTML = `Abilities`;
-      }else if (requestURL.includes('type')){
-        homeLink.innerHTML = `Pokemons`;
+        homeLink.style.textDecoration = 'underline';
+        abilitiesLink.style.textDecoration = 'none';
+        typesLink.style.textDecoration = 'none';
+        typesLink.innerHTML = 'Types';
+        abilitiesLink.innerHTML = 'Abilities';
+      } else if (requestURL.includes('type')) {
+        homeLink.innerHTML = 'Pokemons';
         typesLink.innerHTML = `Types (${itemsCount})`;
-        typesLink.style.textDecoration ='underline';
-        homeLink.style.textDecoration ='none';
-        abilitiesLink.style.textDecoration ='none';
-        abilitiesLink.innerHTML = `Abilities`;
-      }else{
-        homeLink.innerHTML = `Pokemons`;
-        typesLink.innerHTML = `Types`;
+        typesLink.style.textDecoration = 'underline';
+        homeLink.style.textDecoration = 'none';
+        abilitiesLink.style.textDecoration = 'none';
+        abilitiesLink.innerHTML = 'Abilities';
+      } else {
+        homeLink.innerHTML = 'Pokemons';
+        typesLink.innerHTML = 'Types';
         abilitiesLink.innerHTML = `Abilities (${itemsCount})`;
-        abilitiesLink.style.textDecoration ='underline';
-        typesLink.style.textDecoration ='none';
-        homeLink.style.textDecoration ='none';
-
+        abilitiesLink.style.textDecoration = 'underline';
+        typesLink.style.textDecoration = 'none';
+        homeLink.style.textDecoration = 'none';
       }
-      console.log(itemsCount);
+
       json.results.forEach((entity, i) => {
         const item = new Item(entity.name, entity.url, `${entity.name + i}`, 0);
         const itemsLikes = likesArr.filter(
@@ -52,10 +51,9 @@ const populatePage = async (requestURL) => {
         if (itemsLikes.length > 0) {
           item.likes = itemsLikes[0].likes;
         }
-  
-        createCard(item, container, i, requestURL);
-        
-      })
+
+        createCard(item, container, i);
+      });
     });
 };
 export default populatePage;
