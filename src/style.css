@@ -45,7 +45,7 @@ input {
   }
 }
 
-.modal-dialog {
+.modal-content {
   overflow-y: initial !important;
   height: 90vh !important;
 }
@@ -56,4 +56,16 @@ input {
 
 .align-left {
   text-align: left !important;
+}
+
+h4 {
+  overflow: hidden !important;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
 }
