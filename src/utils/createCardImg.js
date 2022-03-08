@@ -1,4 +1,4 @@
-import comments from '../modules/Comments';
+import comments from './populatePopup';
 
 const createCardImg = async (item, cardImg, commentsLink, i) => {
   if (item.url.includes('type') || item.url.includes('ability')) {
@@ -8,10 +8,7 @@ const createCardImg = async (item, cardImg, commentsLink, i) => {
     await fetch(`${item.url}`)
       .then((response) => response.json())
       .then((json) => {
-        if (item.url.includes('pokemon')) {
-          comments(json, commentsLink, i);
-        }
-
+        comments(json, commentsLink, i);
         cardImg.src = `${json.sprites.other.dream_world.front_default}`;
         cardImg.alt = `${item.name}`;
       });
