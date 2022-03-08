@@ -10,5 +10,6 @@ const addLike = async (item) => {
     },
   })
     .then((response) => response.text());
+    window.location.reload()
 };
 export default (addLike);
