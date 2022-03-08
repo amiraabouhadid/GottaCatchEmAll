@@ -11,6 +11,20 @@ export const addComment = async (comment) => {
   });
 };
 
+export const getComments = async (i) => {
+  const commentsContainer = document.getElementById(`comments${i}`);
+  commentsContainer.innerHTML = '';
+  await fetch(`${commentsURL}?item_id=item${i}`)
+    .then((response) => response.json())
+    .then((comments) => {
+      comments.forEach((comment) => {
+        const commentText = document.createElement('p');
+        commentText.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
+        commentsContainer.appendChild(commentText);
+      });
+    });
+};
+
 const comments = (pokemon, commentLink, i) => {
   const container = document.getElementById('container');
   const commentPopup = document.createElement('div');
@@ -38,24 +52,25 @@ const comments = (pokemon, commentLink, i) => {
                                   </div>
                                   <div class="d-flex justify-content-center">
                                     <div class="row">
-                                      <div class="col-6 col-md-8 align-left characteristics">
-                                        <p><b>Weight:</b> ${pokemon.weight}kg</p>
-                                      </div>
-                                      <div class="col-6 col-md-4 align-left characteristics">
-                                        <p><b>Height:</b> ${pokemon.height}m</p>
-                                      </div>
-                                      <div class="col-6 col-md-8 align-left characteristics">
+                                    <div class="col-8  align-left characteristics">
                                         <p><b>Types:</b> ${types.join(', ')}</p>
-                                      </div>
-                                      <div class="col-6 col-md-4 align-left characteristics">
                                         <p><b>Abilities:</b> ${abilities.join(', ')}</p>
                                       </div>
+                                  
+                                      <div class="col-4 align-left characteristics">
+                                        <p><b>Weight:</b> ${pokemon.weight}kg</p>
+                                        <p><b>Height:</b> ${pokemon.height}m</p>
+                                      </div>
+                                    
+                                      
+                                 
                                     </div>
                                   </div>
-                                  <div class="my-4">
+                                  <div class="d-flex flex-column justify-content-center">
                                     <h4>
                                         Comments (2)
                                     </h4>
+                                    <div id="comments${i}" class="align-left w-50 comments"></div>
                                   </div>
                                   <div class="my-4 w-70">
                                     <h4>
@@ -109,6 +124,7 @@ const comments = (pokemon, commentLink, i) => {
           }, 2400);
           name.value = '';
           insight.value = '';
+          getComments(i, container);
         },
         () => {
           const error = 'An error occurred while adding your comment, please try again shortly.';
@@ -122,6 +138,10 @@ const comments = (pokemon, commentLink, i) => {
       );
     }
   };
+
+  commentPopup.addEventListener('show.bs.modal', () => {
+    getComments(i, container);
+  });
 };
 
 export default (comments);
