@@ -61,3 +61,11 @@ input {
 h4 {
   overflow: hidden !important;
 }
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}

@@ -1,3 +1,16 @@
+const appId = "OJhoS4niRmFdRpqldNlB";
+const commentsURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments`;
+
+export const addComment = async (comment) => {
+  await fetch(commentsURL, {
+    method: 'POST',
+    body: JSON.stringify(comment), 
+    headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+    }, 
+  })
+};
+
 const comments = (pokemon, commentLink, i) => {
   const container = document.getElementById('container');
   const commentPopup = document.createElement('div');
@@ -55,7 +68,12 @@ const comments = (pokemon, commentLink, i) => {
                                       <div class="mb-3">
                                         <textarea id="insight${i}" placeholder="Your insight"></textarea>
                                       </div>
-                                      <button class="btn btn-primary" type="submit" id="button${i}">Comment</button>
+                                      <div class="d-flex flex-column">
+                                        <small id="status${i}" class="py-2"></small>
+                                        <div d-grid gap-2 d-md-block>
+                                          <button class="btn btn-outline-primary m-1" type="button" id="button${i}" ml-2>Comment</button>
+                                        </div>
+                                      </div>
                                     </form>
                                   </div>
                                 </div>
@@ -66,17 +84,43 @@ const comments = (pokemon, commentLink, i) => {
   button.addEventListener('click', () => {
     const name = document.getElementById(`name${i}`);
     const insight = document.getElementById(`insight${i}`);
-    const comment = {
-                      "item_id": "item"+i,
-                      "username": name.value,
-                      "comment": insight.value
-                    }
-    addComment(comment);
+    const status = document.getElementById(`status${i}`)
+    if (name.value === '' || insight.value === '') {
+      status.innerHTML = 'Please fill both fields before submitting.';
+      status.classList.add('red');
+          setTimeout(() => { 
+            status.innerHTML = '';
+            status.classList.remove('red');
+          }, 2400);
+    } else {
+      const comment = {
+        "item_id": "item"+i,
+        "username": name.value,
+        "comment": insight.value
+      }
+      addComment(comment,status).then(
+        () => {
+          status.innerHTML = 'Your comment was successfully submitted.';
+          status.classList.add('green');
+          setTimeout(() => { 
+            status.innerHTML = '';
+            status.classList.remove('green');
+          }, 2400);
+          name.value = '';
+          insight.value = '';
+        },
+        () => {
+          const error = 'An error occurred while adding your comment, please try again shortly.';
+          status.innerHTML = error;
+          status.classList.add('red');
+          setTimeout(() => { 
+            status.innerHTML = '';
+            status.classList.remove('red');
+          }, 2400);
+        },
+      );
+    }
   });
 };
-
-const addComment = (comment) => {
-
-}
 
 export default (comments);
