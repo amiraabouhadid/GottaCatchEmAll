@@ -1,3 +1,11 @@
+const appId = 'OJhoS4niRmFdRpqldNlB';
+const commentsURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments`;
+
+export const getComments = async (i) => {
+  const comments = await fetch(`${commentsURL}?item_id=item${i}`).then(response => response.json());
+  return comments;
+};
+
 const comments = (pokemon, commentLink, i) => {
   const container = document.getElementById('container');
   const commentPopup = document.createElement('div');
@@ -39,10 +47,14 @@ const comments = (pokemon, commentLink, i) => {
                                       </div>
                                     </div>
                                   </div>
-                                  <div id="comments" class="my-4">
+                                  <div class="d-flex flex-column justify-content-center">
                                     <h4>
                                         Comments (2)
                                     </h4>
+                                    <div id="comments${i}" class="align-left w-50 comments"></div>
+                                    <div d-grid gap-2 d-md-block>
+                                      <button class="btn btn-outline-primary m-1" type="button" id="refresh${i}" ml-2>Refresh</button>
+                                    </div>
                                   </div>
                                   <div class="my-4 w-70">
                                     <h4>
@@ -55,13 +67,26 @@ const comments = (pokemon, commentLink, i) => {
                                       <div class="mb-3">
                                         <textarea id="insight" placeholder="Your insight"></textarea>
                                       </div>
-                                      <button class="btn btn-primary" type="submit">Comment</button>
+                                      <div d-grid gap-2 d-md-block>
+                                          <button class="btn btn-outline-primary m-1" type="button" id="button${i}" ml-2>Comment</button>
+                                      </div>
                                     </form>
                                   </div>
                                 </div>
                               </div>
                             </div>`;
   container.appendChild(commentPopup);
+  commentPopup.addEventListener('show.bs.modal', () => {
+    const commentsContainer = document.getElementById(`comments${i}`);
+    commentsContainer.innerHTML = '';
+    getComments(i).then((comments) => {
+      comments.forEach((comment) => {
+        const commentText = document.createElement('p');
+        commentText.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
+        commentsContainer.appendChild(commentText);
+      })
+    });
+  });
 };
 
 export default (comments);
