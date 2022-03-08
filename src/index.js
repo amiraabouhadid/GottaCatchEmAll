@@ -6,6 +6,3 @@ import Nav from './modules/Nav';
 
 Nav();
 populateHome();
-
-
-
