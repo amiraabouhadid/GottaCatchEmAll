@@ -1,12 +1,12 @@
-const appId = 'PfRyX3juJZOX1bJq7Kel';
+const appId = "FK4BafgXZ3oaEOpMgby6";
 const likesURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes`;
 
-export const addLike = async (i) => {
+export const addLike = async (item) => {
   await fetch(likesURL, {
-    method: 'POST',
-    body: JSON.stringify({ item_id: `${i}` }),
+    method: "POST",
+    body: JSON.stringify({ item_id: `${item.id}` }),
     headers: {
-      'Content-type': 'application/json; charset=UTF-8',
+      "Content-type": "application/json; charset=UTF-8",
     },
   })
     .then((response) => response.text())

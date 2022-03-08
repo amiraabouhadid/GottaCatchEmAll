@@ -1,10 +1,10 @@
 import { createCardImg } from "./createCardImg";
 import { addLike } from "./addLike";
-
-export const createCard = async (item, index, container) => {
+import { getLikes } from "./getLikes";
+export const createCard = async (item, container) => {
   /// create card
   const card = document.createElement("div");
-  card.id = index;
+  card.id = item.id;
   card.classList = "card m-4";
   // create card img
   const cardImg = document.createElement("img");
@@ -32,14 +32,14 @@ export const createCard = async (item, index, container) => {
   likeButton.classList = "col-2 text-dark";
   likeButton.onclick = (e) => {
     e.preventDefault();
-    addLike(index);
+    addLike(item);
   };
   /// create likes Count
   const likesCount = document.createElement("div");
   const likesNum = document.createElement("p");
-
   likesNum.classList = "likes-count";
   likesCount.classList = " my-1";
+  likesNum.innerHTML = `${item.likes} likes`;
   ///append children
   likesCount.appendChild(likesNum);
   header.appendChild(cardTitle);
