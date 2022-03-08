@@ -1,3 +1,7 @@
+* {
+  overflow-x: hidden;
+}
+
 body {
   background-color: blue;
 }
@@ -10,6 +14,7 @@ footer {
   position: relative;
   float: right;
 }
+
 
 .comments-form {
   text-align: left;
@@ -53,3 +58,4 @@ input {
 .align-left {
   text-align: left !important;
 }
+

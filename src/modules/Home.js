@@ -1,26 +1,24 @@
+
 import comments from './Comments.js';
+
 
 const populateHome = async () => {
   const container = document.getElementById('container');
-  const requestURL = 'https://pokeapi.co/api/v2/pokemon?limit=50';
+  container.innerHTML = '';
+  const requestURL = 'https://pokeapi.co/api/v2/pokemon?limit=48';
   await fetch(requestURL)
     .then((response) => response.json())
-    .then((json) => json.results.map(async (poke, i) => {
+    .then((json) => json.results.map(async (poke) => {
       const card = document.createElement('div');
-      card.classList = 'card my-5';
+      card.classList = 'card m-5';
       const cardImg = document.createElement('img');
       cardImg.classList = 'card-img-top';
       cardImg.width = '2px';
-
-      const commentsLink = document.createElement('a');
-      commentsLink.classList = 'btn btn-primary my-3';
-      commentsLink.innerHTML = 'Comments';
-
       await fetch(`${poke.url}`)
         .then((response) => response.json())
         .then((json) => {
-          comments(json, commentsLink, i);
-          cardImg.src = `${json.sprites.front_default}`;
+           comments(json, commentsLink, i);
+          cardImg.src = `${json.sprites.back_default}`;
           cardImg.alt = `${poke.name}`;
         });
       const cardText = document.createElement('div');
@@ -31,8 +29,13 @@ const populateHome = async () => {
       cardTitle.innerHTML = `${poke.name.toUpperCase()}`;
       cardTitle.classList = 'col-10';
 
+      const commentsLink = document.createElement('a');
+      commentsLink.classList = 'btn btn-primary my-3';
+      commentsLink.innerHTML = 'Comments';
+
       const likeButton = document.createElement('p');
-      likeButton.innerHTML = '<i class="fa fa-heart" aria-hidden="true"></i>';
+      likeButton.innerHTML = "<i class='far fa-heart'></i>";
+
       likeButton.classList = 'col-2';
 
       const likesCount = document.createElement('div');
@@ -56,4 +59,6 @@ const populateHome = async () => {
     }));
 };
 
+
 export default (populateHome);
+
