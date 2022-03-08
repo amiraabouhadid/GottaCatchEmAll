@@ -2,8 +2,17 @@ const appId = 'OJhoS4niRmFdRpqldNlB';
 const commentsURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments`;
 
 export const getComments = async (i) => {
-  const comments = await fetch(`${commentsURL}?item_id=item${i}`).then(response => response.json());
-  return comments;
+  const commentsContainer = document.getElementById(`comments${i}`);
+  commentsContainer.innerHTML = '';
+  await fetch(`${commentsURL}?item_id=item${i}`)
+          .then(response => response.json())
+          .then((comments) => {
+            comments.forEach((comment) => {
+              const commentText = document.createElement('p');
+              commentText.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
+              commentsContainer.appendChild(commentText);
+            })
+          });
 };
 
 const comments = (pokemon, commentLink, i) => {
@@ -52,9 +61,6 @@ const comments = (pokemon, commentLink, i) => {
                                         Comments (2)
                                     </h4>
                                     <div id="comments${i}" class="align-left w-50 comments"></div>
-                                    <div d-grid gap-2 d-md-block>
-                                      <button class="btn btn-outline-primary m-1" type="button" id="refresh${i}" ml-2>Refresh</button>
-                                    </div>
                                   </div>
                                   <div class="my-4 w-70">
                                     <h4>
@@ -77,15 +83,7 @@ const comments = (pokemon, commentLink, i) => {
                             </div>`;
   container.appendChild(commentPopup);
   commentPopup.addEventListener('show.bs.modal', () => {
-    const commentsContainer = document.getElementById(`comments${i}`);
-    commentsContainer.innerHTML = '';
-    getComments(i).then((comments) => {
-      comments.forEach((comment) => {
-        const commentText = document.createElement('p');
-        commentText.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
-        commentsContainer.appendChild(commentText);
-      })
-    });
+    getComments(i,container);
   });
 };
 
