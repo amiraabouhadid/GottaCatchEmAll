@@ -69,3 +69,9 @@ h4 {
 .green {
   color: green;
 }
+
+.comments {
+  display: block;
+  margin: auto;
+  max-height: 300px;
+}
