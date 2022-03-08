@@ -1,4 +1,4 @@
-import {addComment, getComments} from './commentsHandler';
+import { addComment, getComments } from './commentsHandler';
 
 const comments = (pokemon, commentLink, i) => {
   const container = document.getElementById('container');
