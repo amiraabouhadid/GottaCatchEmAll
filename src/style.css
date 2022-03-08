@@ -62,17 +62,8 @@ h4 {
   overflow: hidden !important;
 }
 
-<<<<<<< .merge_file_B4dx4x
 .comments {
   display: block;
   margin: auto;
   max-height: 300px;
-=======
-.red {
-  color: red;
-}
-
-.green {
-  color: green;
->>>>>>> .merge_file_YGhQSD
 }
