@@ -24,7 +24,6 @@ const getComments = async (i) => {
             resolve(response.json());
           }
         })
-        .catch( () => {console.log(err)})
     });
     myPromise.then(
       function(value) { 
