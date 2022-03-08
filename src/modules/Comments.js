@@ -52,18 +52,18 @@ const comments = (pokemon, commentLink, i) => {
                                   </div>
                                   <div class="d-flex justify-content-center">
                                     <div class="row">
-                                      <div class="col-6 col-md-8 align-left characteristics">
-                                        <p><b>Weight:</b> ${pokemon.weight}kg</p>
-                                      </div>
-                                      <div class="col-6 col-md-4 align-left characteristics">
-                                        <p><b>Height:</b> ${pokemon.height}m</p>
-                                      </div>
-                                      <div class="col-6 col-md-8 align-left characteristics">
+                                    <div class="col-8  align-left characteristics">
                                         <p><b>Types:</b> ${types.join(', ')}</p>
-                                      </div>
-                                      <div class="col-6 col-md-4 align-left characteristics">
                                         <p><b>Abilities:</b> ${abilities.join(', ')}</p>
                                       </div>
+                                  
+                                      <div class="col-4 align-left characteristics">
+                                        <p><b>Weight:</b> ${pokemon.weight}kg</p>
+                                        <p><b>Height:</b> ${pokemon.height}m</p>
+                                      </div>
+                                    
+                                      
+                                 
                                     </div>
                                   </div>
                                   <div class="d-flex flex-column justify-content-center">
