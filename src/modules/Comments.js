@@ -39,7 +39,7 @@ const comments = (pokemon, commentLink, i) => {
                                       </div>
                                     </div>
                                   </div>
-                                  <div id="comments" class="my-4">
+                                  <div class="my-4">
                                     <h4>
                                         Comments (2)
                                     </h4>
@@ -50,18 +50,33 @@ const comments = (pokemon, commentLink, i) => {
                                     </h4>
                                     <form class="comments-form">
                                       <div class="mb-3">
-                                        <input type="text" id="name" placeholder="Your name">
+                                        <input type="text" id="name${i}" placeholder="Your name">
                                       </div>
                                       <div class="mb-3">
-                                        <textarea id="insight" placeholder="Your insight"></textarea>
+                                        <textarea id="insight${i}" placeholder="Your insight"></textarea>
                                       </div>
-                                      <button class="btn btn-primary" type="submit">Comment</button>
+                                      <button class="btn btn-primary" type="submit" id="button${i}">Comment</button>
                                     </form>
                                   </div>
                                 </div>
                               </div>
                             </div>`;
   container.appendChild(commentPopup);
+  const button = document.getElementById(`button${i}`);
+  button.addEventListener('click', () => {
+    const name = document.getElementById(`name${i}`);
+    const insight = document.getElementById(`insight${i}`);
+    const comment = {
+                      "item_id": "item"+i,
+                      "username": name.value,
+                      "comment": insight.value
+                    }
+    addComment(comment);
+  });
 };
+
+const addComment = (comment) => {
+
+}
 
 export default (comments);
