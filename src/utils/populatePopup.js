@@ -16,16 +16,16 @@ const comments = (pokemon, commentLink, i) => {
     abilities.push(ability.ability.name);
   });
   commentPopup.innerHTML = `<div class="modal-dialog modal-xl">
-                              <div class="modal-content container-fluid p-5">
+                              <div class="modal-content container-fluid">
                                 <div class="modal-header border-0">
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body text-center">
-                                  <div class="p-5">
+                                <div class="modal-body text-center px-5">
+                                  <div class="px-5">
                                     <img src="${pokemon.sprites.other['official-artwork'].front_default}" width="200rem" alt="${pokemon.forms[0].name}" />
                                     <h3 class="modal-title mb-2" id="exampleModalLabel">${pokemon.forms[0].name.toUpperCase()}</h3>   
                                   </div>
-                                  <div class="p-5 ">
+                                  <div class="px-5">
                                     <div class="row p-5">
                                     <div class="col-8  align-left characteristics ml-4">
                                         <p><b>Types:</b> ${types.join(', ')}</p>
