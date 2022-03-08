@@ -1,6 +1,6 @@
-export const createCardImg = async (item, cardImg) => {
-  if (item.url.includes("type") || item.url.includes("ability")) {
-    cardImg.src = `https://i.ibb.co/VV17hyx/download.png`;
+const createCardImg = async (item, cardImg) => {
+  if (item.url.includes('type') || item.url.includes('ability')) {
+    cardImg.src = 'https://i.ibb.co/VV17hyx/download.png';
     cardImg.alt = `${item.name}`;
   } else {
     await fetch(`${item.url}`)
@@ -11,3 +11,4 @@ export const createCardImg = async (item, cardImg) => {
       });
   }
 };
+export default (createCardImg);
