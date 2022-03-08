@@ -1,4 +1,4 @@
-import { addLike } from "./Likes";
+import { addLike, getLikes } from "./Likes";
 
 const populateHome = async () => {
   const container = document.getElementById("container");
@@ -36,11 +36,12 @@ const populateHome = async () => {
         likeButton.classList = "col-2 text-dark";
         likeButton.onclick = (e) => {
           e.preventDefault();
-          addLike();
+          addLike(i);
         };
 
         const likesCount = document.createElement("div");
         const likesNum = document.createElement("p");
+        getLikes(likesNum,i);
 
         likesNum.classList = "likes-count";
         likesCount.classList = " my-1";
