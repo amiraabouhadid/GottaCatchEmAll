@@ -38,10 +38,8 @@ const comments = (pokemon, commentLink, i) => {
                                       </div>    
                                     </div>
                                   </div>
-                                  <div class="">
-                                    <h4>
-                                        Comments (2)
-                                    </h4>
+                                  <div>
+                                    <h4 id="comments-title-${i}">Comments(0)</h4>
                                     <div id="comments${i}" class="align-left w-75 comments"></div>
                                   </div>
                                   <div class="my-4 ">
