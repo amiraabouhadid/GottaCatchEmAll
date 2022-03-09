@@ -2,7 +2,10 @@
 
 # JS Capstone Project : Gotta Catch'em All!
 
->This is a web app where users can view all pokémons fetched from the Pokeapi and leave comments !
+>This is a web app where users can view all pokémons with their respective characteristics, abilities and types fetched from the Pokeapi. Users can like pokemon cards, view the number of likes each card has. Users can also leave comments and view comments made by others !
+![Screenshot from 2022-03-09 11-57-22](https://user-images.githubusercontent.com/56790126/157418372-b019dd97-f531-4ce1-8b51-675ae2496c93.png)
+![Screenshot from 2022-03-09 12-00-30](https://user-images.githubusercontent.com/56790126/157418756-58aad36b-6f6a-4158-878f-b2672419e45e.png)
+
 
 ## Built With
 
@@ -13,7 +16,7 @@
 
 ## Live demo
 
-You can visit live version via [link]()
+You can visit live version via [link](https://amiraabouhadid.github.io/GottaCatchEmAll/)
 
 ## Getting Started
 
