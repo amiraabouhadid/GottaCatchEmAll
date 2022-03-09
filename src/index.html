@@ -4,11 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wbpack Exercise</title>
+    <title>Gotta Catch'em All</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <h1>Hello webpack!</h1>
+    <header class="container-fluid fixed-top bg-white">
+        <nav class="navbar p-1 border-bottom justify-content-around">
+            <a href="" class="nav-link" id='home-logo'>
+                <img src="https://i.ibb.co/Q88mpFd/pokemon-symbol-logo-png-31.png" alt="pokemon-symbol-logo-png-31"
+                    width="80">
+            </a>
+            <a href="" id='home' class="nav-link text-dark n-link">Pokemons </a>
+            <a href="" id='types' class="nav-link text-dark n-link">Types</a>
+            <a href="" id='abilities' class="nav-link text-dark n-link">Abilities</a>
+
+        </nav>
+    </header>
+
+    <div id='container' class="d-flex row p-5 mt-5 bg-dark justify-content-around"></div>
+
+    <footer class="fixed-bottom bg-secondary border d-flex row justify-content-center align-items-center">
+        <div class="text-light text-center">
+            Copyrights <i class="fas fa-copyright"></i> Amira Abouhadid & Mirouhml
+        </div>
+
+    </footer>
 </body>
 
 </html>

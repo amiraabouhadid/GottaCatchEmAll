@@ -1,11 +1,11 @@
-import _ from "lodash";
-import "./style.css";
-function component() {
-  const element = document.createElement("div");
+import './style.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-  element.innerHTML = _.join(["Hello", "webpack"], " ");
+import Nav from './modules/Nav';
 
-  return element;
-}
-
-document.body.appendChild(component());
+const baseURL = 'https://pokeapi.co/api/v2/';
+const homeURL = `${baseURL}pokemon?offset=20&limit=48`;
+const typeURL = `${baseURL}type`;
+const abilityURL = `${baseURL}ability?offset=20&limit=48`;
+Nav(baseURL, homeURL, typeURL, abilityURL);
