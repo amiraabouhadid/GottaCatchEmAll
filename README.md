@@ -7,8 +7,6 @@
 ![localhost_8080_ (1)](https://user-images.githubusercontent.com/56790126/157423585-549ca270-5c59-442f-86c2-f6408cf4c95d.png)
 
 
-
-
 ## Built With
 
 - HTML5
@@ -60,7 +58,7 @@ $ git clone git@github.com:amiraabouhadid/GottaCatchEmAll.git.
 👤 **Mirouhml**
 
 - GitHub: [@mirouhml](https://github.com/mirouhml)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ammar-hamlaoui-514909189/)
+- LinkedIn: [ammar-hamlaoui](https://www.linkedin.com/in/ammar-hamlaoui-514909189/)
 - Twitter: [@kuronomirou](https://twitter.com/kuronomirou)
 
 ## Contributors
