@@ -1,29 +1,4 @@
-const appId = 'OJhoS4niRmFdRpqldNlB';
-const commentsURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments`;
-
-export const addComment = async (comment) => {
-  await fetch(commentsURL, {
-    method: 'POST',
-    body: JSON.stringify(comment),
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-  });
-};
-
-export const getComments = async (i) => {
-  const commentsContainer = document.getElementById(`comments${i}`);
-  commentsContainer.innerHTML = '';
-  await fetch(`${commentsURL}?item_id=item${i}`)
-    .then((response) => response.json())
-    .then((comments) => {
-      comments.forEach((comment) => {
-        const commentText = document.createElement('p');
-        commentText.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
-        commentsContainer.appendChild(commentText);
-      });
-    });
-};
+import { addComment, getComments } from './commentsHandler';
 
 const comments = (pokemon, commentLink, i) => {
   const container = document.getElementById('container');
@@ -41,16 +16,16 @@ const comments = (pokemon, commentLink, i) => {
     abilities.push(ability.ability.name);
   });
   commentPopup.innerHTML = `<div class="modal-dialog modal-xl">
-                              <div class="modal-content container-fluid p-5">
+                              <div class="modal-content container-fluid">
                                 <div class="modal-header border-0">
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body text-center">
-                                  <div class="p-5">
+                                <div class="modal-body text-center px-5">
+                                  <div class="px-5">
                                     <img src="${pokemon.sprites.other['official-artwork'].front_default}" width="200rem" alt="${pokemon.forms[0].name}" />
                                     <h3 class="modal-title mb-2" id="exampleModalLabel">${pokemon.forms[0].name.toUpperCase()}</h3>   
                                   </div>
-                                  <div class="p-5 ">
+                                  <div class="px-5">
                                     <div class="row p-5">
                                     <div class="col-8  align-left characteristics ml-4">
                                         <p><b>Types:</b> ${types.join(', ')}</p>
@@ -63,10 +38,8 @@ const comments = (pokemon, commentLink, i) => {
                                       </div>    
                                     </div>
                                   </div>
-                                  <div class="">
-                                    <h4>
-                                        Comments (2)
-                                    </h4>
+                                  <div>
+                                    <h4 id="comments-title-${i}">Comments(0)</h4>
                                     <div id="comments${i}" class="align-left w-75 comments"></div>
                                   </div>
                                   <div class="my-4 ">
