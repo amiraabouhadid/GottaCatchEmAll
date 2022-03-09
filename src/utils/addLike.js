@@ -1,5 +1,6 @@
-const appId = 'FK4BafgXZ3oaEOpMgby6';
-const likesURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes`;
+import app from '../modules/App';
+
+const likesURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${app.id}/likes`;
 
 const addLike = async (item, likesNum) => {
   await fetch(likesURL, {

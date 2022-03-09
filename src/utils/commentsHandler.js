@@ -1,7 +1,8 @@
 import commentsCounter from './commentsCounter';
 
-const appId = 'OJhoS4niRmFdRpqldNlB';
-const commentsURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments`;
+import app from '../modules/App';
+
+const commentsURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${app.id}/comments`;
 
 const addComment = async (comment) => {
   await fetch(commentsURL, {

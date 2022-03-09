@@ -1,12 +1,13 @@
 import createCard from './createCard';
 import Item from '../modules/Item';
 import itemsCounter from './itemsCounter';
+import app from '../modules/App';
 
 const populatePage = async (requestURL) => {
   const container = document.getElementById('container');
   container.innerHTML = '';
-  const appId = 'FK4BafgXZ3oaEOpMgby6';
-  const likesURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes`;
+
+  const likesURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${app.id}/likes`;
   let likesArr;
   let itemsCount;
 
