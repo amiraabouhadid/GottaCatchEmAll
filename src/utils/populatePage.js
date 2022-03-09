@@ -1,5 +1,6 @@
 import createCard from './createCard';
 import Item from '../modules/Item';
+import itemsCounter from './itemsCounter';
 
 const populatePage = async (requestURL) => {
   const container = document.getElementById('container');
@@ -8,9 +9,7 @@ const populatePage = async (requestURL) => {
   const likesURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes`;
   let likesArr;
   let itemsCount;
-  const homeLink = document.getElementById('home');
-  const typesLink = document.getElementById('types');
-  const abilitiesLink = document.getElementById('abilities');
+
   await fetch(likesURL)
     .then((response) => response.json())
     .then((json) => {
@@ -20,29 +19,7 @@ const populatePage = async (requestURL) => {
     .then((response) => response.json())
     .then((json) => {
       itemsCount = json.results.length;
-      if (requestURL.includes('pokemon')) {
-        homeLink.innerHTML = `Pokemons (${itemsCount})`;
-        homeLink.style.textDecoration = 'underline';
-        abilitiesLink.style.textDecoration = 'none';
-        typesLink.style.textDecoration = 'none';
-        typesLink.innerHTML = 'Types';
-        abilitiesLink.innerHTML = 'Abilities';
-      } else if (requestURL.includes('type')) {
-        homeLink.innerHTML = 'Pokemons';
-        typesLink.innerHTML = `Types (${itemsCount})`;
-        typesLink.style.textDecoration = 'underline';
-        homeLink.style.textDecoration = 'none';
-        abilitiesLink.style.textDecoration = 'none';
-        abilitiesLink.innerHTML = 'Abilities';
-      } else {
-        homeLink.innerHTML = 'Pokemons';
-        typesLink.innerHTML = 'Types';
-        abilitiesLink.innerHTML = `Abilities (${itemsCount})`;
-        abilitiesLink.style.textDecoration = 'underline';
-        typesLink.style.textDecoration = 'none';
-        homeLink.style.textDecoration = 'none';
-      }
-
+      itemsCounter(itemsCount, requestURL);
       json.results.forEach((entity, i) => {
         const item = new Item(entity.name, entity.url, `${entity.name + i}`, 0);
         const itemsLikes = likesArr.filter(
