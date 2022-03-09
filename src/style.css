@@ -15,6 +15,10 @@ footer {
   float: right;
 }
 
+.n-link {
+  font-size: 1.15rem;
+}
+
 .comments-form {
   text-align: left;
   width: 75%;
