@@ -58,7 +58,8 @@ input {
   text-align: left !important;
 }
 
-h4 {
+h4,
+h5 {
   overflow: hidden !important;
 }
 

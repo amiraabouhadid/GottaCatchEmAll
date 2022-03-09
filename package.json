@@ -4,10 +4,15 @@
   "description": "",
   "private": true,
   "scripts": {
-    "test": "jest --env=jsdom",
+    "test": "jest --env=jsdom --verbose",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
     "build": "webpack"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   },
   "keywords": [],
   "author": "",
@@ -25,6 +30,8 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.16.11",
+    "babel-jest": "^27.5.1",
     "bootstrap": "^5.1.3",
     "jest": "^27.5.1",
     "jsdom": "^19.0.0",
