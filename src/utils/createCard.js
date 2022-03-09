@@ -37,7 +37,7 @@ const createCard = async (item, container, i) => {
   const likesNum = document.createElement('p');
   likeButton.onclick = (e) => {
     e.preventDefault();
-    addLike(item,likesNum);
+    addLike(item, likesNum);
   };
   /// create likes Count
   const likesCount = document.createElement('div');
