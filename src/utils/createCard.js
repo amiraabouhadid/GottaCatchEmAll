@@ -34,13 +34,13 @@ const createCard = async (item, container, i) => {
   const likeButton = document.createElement('a');
   likeButton.innerHTML = "<i class='far fa-heart'></i>";
   likeButton.classList = 'col-2 text-dark';
+  const likesNum = document.createElement('p');
   likeButton.onclick = (e) => {
     e.preventDefault();
-    addLike(item);
+    addLike(item, likesNum);
   };
   /// create likes Count
   const likesCount = document.createElement('div');
-  const likesNum = document.createElement('p');
   likesNum.classList = 'likes-count';
   likesCount.classList = ' my-1';
   likesNum.innerHTML = `${item.likes} likes`;
